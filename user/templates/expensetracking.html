@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #4B0082; /* Dark Violet */
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            color: #4B0082; /* Dark Violet */
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input, select, textarea {
+            border: 1px solid #9370DB; /* Medium Purple */
+            background-color: #F8F8FF; /* Ghost White */
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background-color: #9400D3; /* Dark Violet */
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #8A2BE2; /* Blue Violet */
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .radio-group label {
+            font-weight: normal;
+            color: #4B0082; /* Dark Violet */
+        }
+        .file-upload {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="POST" action="/submit_expense">
+        <h2>Expense Tracking Form</h2>
+
+        <!-- Expense Title/Description -->
+        <label for="description">Expense Title/Description:</label>
+        <input type="text" id="description" name="description" required placeholder="e.g., Groceries, Rent, Utility Bills">
+
+        <!-- Amount Spent -->
+        <label for="amount">Amount Spent (₹):</label>
+        <input type="number" id="amount" name="amount" step="0.01" required placeholder="e.g., 2000">
+
+        <!-- Date of Expense -->
+        <label for="date">Date of Expense:</label>
+        <input type="date" id="date" name="date" required>
+
+        <!-- Expense Category -->
+        <label for="category">Category of Expense:</label>
+        <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="groceries">Groceries</option>
+            <option value="rent">Rent</option>
+            <option value="utilities">Utilities</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="transportation">Transportation</option>
+            <option value="dining">Dining</option>
+            <option value="health">Health & Fitness</option>
+            <option value="shopping">Shopping</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Payment Method -->
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method" required>
+            <option value="">Select Payment Method</option>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+            <option value="cash">Cash</option>
+            <option value="bank_transfer">Bank Transfer</option>
+            <option value="digital_wallet">Digital Wallet (e.g., Paytm, Google Pay)</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Recurring Expense -->
+        <label>Is this a recurring expense?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="recurring" value="no" required> No</label>
+            <label><input type="radio" name="recurring" value="weekly"> Weekly</label>
+            <label><input type="radio" name="recurring" value="monthly"> Monthly</label>
+            <label><input type="radio" name="recurring" value="annually"> Annually</label>
+        </div>
+
+        <!-- Need Tax Deduction -->
+        <label>Is this expense eligible for tax deduction?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="tax_deductible" value="yes" required> Yes</label>
+            <label><input type="radio" name="tax_deductible" value="no"> No</label>
+        </div>
+
+        <!-- Additional Notes -->
+        <label for="notes">Additional Notes (Optional):</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Any additional information about this expense..."></textarea>
+
+        <!-- File Upload for Receipt/Proof -->
+        <label for="receipt" class="file-upload">Attach Receipt/Proof (Optional):</label>
+        <input type="file" id="receipt" name="receipt">
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Expense</button>
+    </form>
+
+</body>
+</html>

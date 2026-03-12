@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Reporting</title>
+  <style>
+    body {
+      background-color: #6a0dad;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #7b1fa2;
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 20px auto;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .summary {
+      display: flex;
+      justify-content: space-between;
+      background-color: #8e24aa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .summary div {
+      flex: 1;
+      text-align: left;
+      padding: 0 15px;
+    }
+
+    .summary div p {
+      font-weight: bold;
+    }
+
+    .summary div span {
+      font-size: 18px;
+    }
+
+    #chart {
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e68900;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Financial Reporting</h2>
+
+    <div class="summary">
+      <div>
+        <p>Total Income:</p>
+        <span id="total-income">₹0</span>
+      </div>
+      <div>
+        <p>Total Expenses:</p>
+        <span id="total-expenses">₹0</span>
+      </div>
+      <div>
+        <p>Remaining Budget:</p>
+        <span id="remaining-budget">₹0</span>
+      </div>
+      <div>
+        <p>Total Taxes:</p>
+        <span id="total-taxes">₹0</span>
+      </div>
+    </div>
+
+    <canvas id="chart" width="400" height="200"></canvas>
+
+    <button id="download-report">Download Report</button>
+  </div>
+
+  <script>
+    // Sample Data - This should be dynamically fetched from your backend
+    let totalIncome = 10000;
+    let totalExpenses = 4000;
+    let remainingBudget = 6000;
+    let totalTaxes = 2000;
+
+    // Display data in the summary section
+    document.getElementById('total-income').textContent = `₹${totalIncome}`;
+    document.getElementById('total-expenses').textContent = `₹${totalExpenses}`;
+    document.getElementById('remaining-budget').textContent = `₹${remainingBudget}`;
+    document.getElementById('total-taxes').textContent = `₹${totalTaxes}`;
+
+    // Generate Chart for Income vs Expenses
+    const ctx = document.getElementById('chart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Income', 'Expenses', 'Remaining Budget', 'Taxes'],
+        datasets: [{
+          label: 'Financial Data',
+          data: [totalIncome, totalExpenses, remainingBudget, totalTaxes],
+          backgroundColor: [
+            '#4caf50',
+            '#f44336',
+            '#2196f3',
+            '#ff9800'
+          ],
+          borderColor: [
+            '#388e3c',
+            '#d32f2f',
+            '#1976d2',
+            '#e65100'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Download report function (CSV format)
+    document.getElementById('download-report').addEventListener('click', function () {
+      const csvContent = `
+      Financial Report\n
+      Total Income, ₹${totalIncome}\n
+      Total Expenses, ₹${totalExpenses}\n
+      Remaining Budget, ₹${remainingBudget}\n
+      Total Taxes, ₹${totalTaxes}
+      `;
+      
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', 'financial_report.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+</body>
+</html>

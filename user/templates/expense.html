@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #b318a8;
+        }
+        .card {
+            width: 320px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        .card img {
+            width: 50px;
+        }
+        .card h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        form {
+            margin-top: 20px;
+        }
+        form input, form select, form button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #d32f2f;
+        }
+        .category-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .category-section select {
+            width: 80%;
+        }
+        .category-section button {
+            width: 18%;
+            background-color: #f44336;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .category-section button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2926/2926372.png" alt="Expense Icon">
+        <h2>Expense Tracking</h2>
+        <p>Track your expenses and see where your money is going.</p>
+
+        <form id="expense-form">
+            <input type="text" placeholder="Expense Description" required>
+            <input type="number" placeholder="Amount" required>
+            <input type="date" placeholder="Date" required>
+
+            <div id="expense-category-section-wrapper">
+                <div class="category-section">
+                    <select>
+                        <option value="">Select Category</option>
+                        <option value="food">Food</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="bills">Bills</option>
+                        <option value="health">Health</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button type="button" onclick="removeExpenseCategory(this)">-</button>
+                </div>
+            </div>
+
+            <button type="button" onclick="addExpenseCategory()">+ Add Category</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function addExpenseCategory() {
+            const expenseCategorySectionWrapper = document.getElementById('expense-category-section-wrapper');
+            const newExpenseCategorySection = document.createElement('div');
+            newExpenseCategorySection.classList.add('category-section');
+            
+            newExpenseCategorySection.innerHTML = `
+                <select>
+                    <option value="">Select Category</option>
+                    <option value="food">Food</option>
+                    <option value="transportation">Transportation</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="bills">Bills</option>
+                    <option value="health">Health</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="other">Other</option>
+                </select>
+                <button type="button" onclick="removeExpenseCategory(this)">-</button>
+            `;
+            expenseCategorySectionWrapper.appendChild(newExpenseCategorySection);
+        }
+
+        function removeExpenseCategory(button) {
+            const expenseCategorySection = button.parentElement;
+            expenseCategorySection.remove();
+        }
+    </script>
+
+</body>
+</html>

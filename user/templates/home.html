@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #4a148c;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h2 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 10px 0;
+        }
+        .sidebar ul li a:hover {
+            background-color: #6a1b9a;
+            padding-left: 10px;
+            transition: padding-left 0.3s ease;
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #4a148c;
+        }
+        .dashboard-sections {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            width: calc(33% - 20px);
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            color: #4a148c;
+        }
+        .card p, .transaction-form select, .transaction-form input {
+            font-size: 0.9rem;
+            margin: 0;
+            padding: 8px 0;
+        }
+        .transaction-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .transaction-form input, .transaction-form select, .transaction-form button {
+            background: none;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .transaction-form button {
+            background-color: #6a1b9a;
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 0;
+            transition: background-color 0.3s;
+        }
+        .transaction-form button:hover {
+            background-color: #8e24aa;
+        }
+        .net-worth, .recent-transactions {
+            margin: 0;
+            padding: 0;
+        }
+        .net-worth p, .recent-transactions li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .recent-transactions ul {
+            list-style: none;
+            padding: 0;
+        }
+        .recent-transactions li {
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Accounts</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Budget</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="header">Your Account</div>
+
+        <div class="dashboard-sections">
+            <!-- Net Worth Section -->
+            <div class="card">
+                <h3>Net Worth</h3>
+                <div class="net-worth">
+                    <p>Total: <strong>$35,668</strong></p>
+                    <p>Cash: $1,264</p>
+                    <p>Savings: $16,000</p>
+                </div>
+            </div>
+
+            <!-- New Transaction Section -->
+            <div class="card">
+                <h3>New Transaction</h3>
+                <div class="transaction-form">
+                    <select required>
+                        <option value="">Transaction Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <input type="text" placeholder="From" required>
+                    <input type="text" placeholder="Tags">
+                    <input type="number" placeholder="Amount" required>
+                    <input type="date" required>
+                    <button type="submit">Add Transaction</button>
+                </div>
+            </div>
+
+            <!-- Recent Transactions Section -->
+            <div class="card">
+                <h3>Recent Transactions</h3>
+                <div class="recent-transactions">
+                    <ul>
+                        <li><span>01 May</span><span>$588.20</span></li>
+                        <li><span>30 Apr</span><span>$1,000.00</span></li>
+                        <li><span>30 Apr</span><span>-$540.00</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

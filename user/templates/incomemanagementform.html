@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Management Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #4B0082; /* Dark Violet */
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            color: #4B0082; /* Dark Violet */
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input, select, textarea {
+            border: 1px solid #9370DB; /* Medium Purple */
+            background-color: #F8F8FF; /* Ghost White */
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background-color: #9400D3; /* Dark Violet */
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #8A2BE2; /* Blue Violet */
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .radio-group label {
+            font-weight: normal;
+            color: #4B0082; /* Dark Violet */
+        }
+        .file-upload {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="POST" action="/submit_income">
+        <h2>Income Management Form</h2>
+
+        <!-- Income Source -->
+        <label for="source">Income Source:</label>
+        <input type="text" id="source" name="source" required placeholder="e.g., Salary, Freelance Work">
+
+        <!-- Income Amount -->
+        <label for="amount">Amount Received (₹):</label>
+        <input type="number" id="amount" name="amount" step="0.01" required placeholder="e.g., 5000">
+
+        <!-- Date of Income -->
+        <label for="date">Date of Income:</label>
+        <input type="date" id="date" name="date" required>
+
+        <!-- Income Category -->
+        <label for="category">Category of Income:</label>
+        <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="salary">Salary</option>
+            <option value="business">Business</option>
+            <option value="investment">Investment</option>
+            <option value="freelance">Freelance</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Income Frequency -->
+        <label>Is this a recurring income?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="frequency" value="one-time" required> One-time</label>
+            <label><input type="radio" name="frequency" value="weekly"> Weekly</label>
+            <label><input type="radio" name="frequency" value="monthly"> Monthly</label>
+            <label><input type="radio" name="frequency" value="annually"> Annually</label>
+        </div>
+
+        <!-- Tax Deduction -->
+        <label>Was any tax deducted?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="tax_deducted" value="yes" required> Yes</label>
+            <label><input type="radio" name="tax_deducted" value="no"> No</label>
+        </div>
+
+        <!-- Net Income -->
+        <label for="net_income">Net Income After Tax (₹):</label>
+        <input type="number" id="net_income" name="net_income" step="0.01" placeholder="e.g., 4800">
+
+        <!-- Payment Method -->
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method" required>
+            <option value="">Select Payment Method</option>
+            <option value="bank_transfer">Bank Transfer</option>
+            <option value="cash">Cash</option>
+            <option value="cheque">Cheque</option>
+            <option value="credit_card">Credit Card</option>
+        </select>
+
+        <!-- Description or Notes -->
+        <label for="description">Description (Optional):</label>
+        <textarea id="description" name="description" rows="4" placeholder="Add any additional notes here..."></textarea>
+
+        <!-- File Upload for Proof/Receipt -->
+        <label for="receipt" class="file-upload">Attach Proof/Receipt (Optional):</label>
+        <input type="file" id="receipt" name="receipt">
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Income</button>
+    </form>
+
+</body>
+</html>

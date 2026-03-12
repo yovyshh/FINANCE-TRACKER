@@ -1,0 +1,50 @@
+
+{% include 'header.html'%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Categories</title>
+  <style>
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      background-color: white;
+    }
+  
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>View Categories</h1>
+  <table>
+    <tr>
+      <th>Category Name</th>
+      <th>Description</th>
+      <th>Category Type</th>
+    </tr>
+    {% for IncomeCategory in a %}
+    <tr>
+      <td>{{ IncomeCategory.category_name }}</td>
+      <td>{{ IncomeCategory.category_type }}</td>
+      <td>{{ IncomeCategory.category_description }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3" style="text-align: center;">No categories found.</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

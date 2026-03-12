@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget and Future Planning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #b00099;
+        }
+        .card {
+            width: 320px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        .card img {
+            width: 50px;
+        }
+        .card h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        form {
+            margin-top: 20px;
+        }
+        form input, form select, form button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #1976D2;
+        }
+        .category-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .category-section select, .category-section input {
+            width: 40%;
+        }
+        .category-section button {
+            width: 15%;
+            background-color: #f44336;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .category-section button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2926/2926372.png" alt="Budget Icon">
+        <h2>Budget & Future Planning</h2>
+        <p>Plan your budget and track your future financial goals.</p>
+
+        <form id="budget-form">
+            <input type="number" placeholder="Target Budget Amount" required>
+            <input type="date" placeholder="Target Date" required>
+
+            <div id="budget-category-section-wrapper">
+                <div class="category-section">
+                    <select>
+                        <option value="">Select Category</option>
+                        <option value="savings">Savings</option>
+                        <option value="vacation">Vacation</option>
+                        <option value="education">Education</option>
+                        <option value="home-improvement">Home Improvement</option>
+                        <option value="emergency-fund">Emergency Fund</option>
+                        <option value="retirement">Retirement</option>
+                    </select>
+                    <input type="number" placeholder="Amount" required>
+                    <button type="button" onclick="removeBudgetCategory(this)">-</button>
+                </div>
+            </div>
+
+            <button type="button" onclick="addBudgetCategory()">+ Add Category</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function addBudgetCategory() {
+            const budgetCategorySectionWrapper = document.getElementById('budget-category-section-wrapper');
+            const newBudgetCategorySection = document.createElement('div');
+            newBudgetCategorySection.classList.add('category-section');
+            
+            newBudgetCategorySection.innerHTML = `
+                <select>
+                    <option value="">Select Category</option>
+                    <option value="savings">Savings</option>
+                    <option value="vacation">Vacation</option>
+                    <option value="education">Education</option>
+                    <option value="home-improvement">Home Improvement</option>
+                    <option value="emergency-fund">Emergency Fund</option>
+                    <option value="retirement">Retirement</option>
+                </select>
+                <input type="number" placeholder="Amount" required>
+                <button type="button" onclick="removeBudgetCategory(this)">-</button>
+            `;
+            budgetCategorySectionWrapper.appendChild(newBudgetCategorySection);
+        }
+
+        function removeBudgetCategory(button) {
+            const budgetCategorySection = button.parentElement;
+            budgetCategorySection.remove();
+        }
+    </script>
+
+</body>
+</html>

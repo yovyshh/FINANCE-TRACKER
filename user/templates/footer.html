@@ -1,0 +1,136 @@
+{% load static %}
+<html>
+  <head>
+    <style>
+/* Footer Section Styling */
+.footer_section {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+.footer_section .footer-col {
+  margin-bottom: 30px;
+}
+
+.footer_section h4 {
+  color: #f1c40f;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.footer_section p,
+.footer_section ul li,
+.footer_section ul li a {
+  color: #ecf0f1;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.footer_section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer_section ul li {
+  margin-bottom: 10px;
+}
+
+.footer_section ul li a {
+  text-decoration: none;
+  color: #ecf0f1;
+  transition: color 0.3s ease;
+}
+
+.footer_section ul li a:hover {
+  color: #f1c40f;
+}
+
+.footer_social {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer_social a {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 10px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.footer_social a:hover {
+  color: #f1c40f;
+}
+
+.footer-info {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ecf0f1;
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+  .footer_section .footer-col {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .footer_section ul {
+    padding-left: 0;
+  }
+}
+</style>
+</head>
+
+<!-- Footer Section -->
+<footer class="footer_section">
+  <div class="container">
+    <div class="row">
+      <!-- Company Info -->
+      <div class="col-md-4 footer-col">
+        <div class="footer_detail">
+          <h4>Income Tracker</h4>
+          <p>Effortlessly manage your finances, track your income and expenses, and stay on top of your financial goals.</p>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="income.html">Income Management</a></li>
+          <li><a href="expense.html">Expense Tracking</a></li>
+          <li><a href="budget.html">Budget Planner</a></li>
+          <li><a href="financialreports.html">Financial Reports</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fa fa-phone" aria-hidden="true"></i> +91 123 456 7890</li>
+          <li><i class="fa fa-envelope" aria-hidden="true"></i> support@incometracker.com</li>
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i> Kerala, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="footer_social">
+      <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-info">
+      <p>&copy; 2024 Income Tracker | All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #6a0dad;
+        }
+        .card {
+            width: 350px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        .card img {
+            width: 50px;
+        }
+        .card h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .card .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        form {
+            margin-top: 20px;
+        }
+        form input, form select, form button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        .category-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .category-section input, .category-section select {
+            width: 45%;
+        }
+        .category-section button {
+            width: 10%;
+            background-color: #f44336;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .category-section button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2926/2926372.png" alt="Income Icon">
+        <h2>Category Management</h2>
+        <p>Add categories and their descriptions for better organization.</p>
+
+        <form id="category-form">
+            <div id="category-section-wrapper">
+                <div class="category-section">
+                    <input type="text" placeholder="Category Name" required>
+                    <input type="text" placeholder="Description" required>
+                    <button type="button" onclick="removeCategory(this)">-</button>
+                </div>
+            </div>
+
+            <button type="button" onclick="addCategory()">+ Add Category</button>
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="https://www.example.com" class="btn" target="_blank">Add Income</a>
+
+    </div>
+
+    <script>
+        function addCategory() {
+            const categorySectionWrapper = document.getElementById('category-section-wrapper');
+            const newCategorySection = document.createElement('div');
+            newCategorySection.classList.add('category-section');
+            
+            newCategorySection.innerHTML = `
+                <input type="text" placeholder="Category Name" required>
+                <input type="text" placeholder="Description" required>
+                <button type="button" onclick="removeCategory(this)">-</button>
+            `;
+            categorySectionWrapper.appendChild(newCategorySection);
+        }
+
+        function removeCategory(button) {
+            const categorySection = button.parentElement;
+            categorySection.remove();
+        }

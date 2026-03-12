@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Site Meta Tags -->
+  <meta name="keywords" content="income tracker, finance management, budgeting, expense tracking, financial reporting" />
+  <meta name="description" content="Income Tracker - Manage your income and expenses effortlessly. Track your budget and generate financial reports." />
+  <meta name="author" content="Income Tracker" />
+
+  <!-- Page Title -->
+  <title>Income Tracker - Manage Your Finances</title>
+
+  <!-- Bootstrap CSS from CDN -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- Font Awesome CSS from CDN -->
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero_area">
+    <!-- Header Section -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="/">
+            <span>INSIGHT</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              {% if request.session.ut == 1 %}
+              <!-- Admin-Specific Links -->
+              <li class="nav-item">
+                <a class="nav-link" href="/add-category">Add Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/viewusers">View Users</a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/viewcategories">View Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+
+              {% elif request.session.ut == 2 %}
+              <!-- User-Specific Links -->
+        
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="service.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">logout</a>
+                
+              </li>
+
+              {% else %}
+              <!-- Guest-Specific Links -->
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/service">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+              <div class="quote_btn-container">
+                <a href="/signin" class="quote_btn">Sign In</a>
+              </div>
+              <div class="quote_btn-container">
+                <a href="/register" class="quote_btn">Register</a>
+              </div>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header Section -->
+

@@ -1,0 +1,171 @@
+{% load static %}
+{% include 'header.html'%}
+
+
+
+    <!-- Slider Section -->
+    <section class="slider_section">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img style="width: 200px;" src="C:\Users\vaish\Videos\project_1\myproject\user\static\images\expenses.png" alt="Slider Image">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>Track Your Income & Expenses</h1>
+                    <p>Effortlessly manage your finances with our easy-to-use income tracker. Keep your budget on track and stay financially healthy.</p>
+                    <div class="btn-box">
+                      <a href="register.html" class="btn1">Get Started</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more carousel items -->
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img style="width: 200px;" src="C:\Users\vaish\Videos\project_1\myproject\user\static\images\stock.png" alt="Slider Image">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>Analyze Your Financial Health</h1>
+                    <p>Use our tools to track your expenses and savings, and stay on top of your financial goals.</p>
+                    <div class="btn-box">
+                      <a href="register.html" class="btn1">Get Started</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add more carousel items -->
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="static/images/slider-img3.png" alt="Slider Image">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>Track Your Savings Goals</h1>
+                    <p>Set and achieve your financial goals with easy-to-use savings tracking features.</p>
+                    <div class="btn-box">
+                      <a href="register.html" class="btn1">Sign Up Today</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </section>
+    <!-- End Slider Section -->
+  </div>
+
+  <!-- Features Section -->
+  <section  class="service_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>Features</h2>
+        <p>Powerful tools to help you take control of your finances.</p>
+      </div>
+      <div class="row" style="padding-left: 250px; align-items: center;" >
+        <!-- Repeat this block for each feature -->
+        <div class="col-md-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="C:\Users\vaish\Videos\project_1\myproject\user\static\images\personal.png" alt="Feature Image">
+            </div>
+            <div class="detail-box">
+              <h5>Income Management</h5>
+              <p>Track your income streams and see where your money is coming from.</p>
+              <a href="income.html">
+                <span>Try it out</span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="C:\Users\vaish\Videos\project_1\myproject\user\static\images\expensestrack.png" alt="Feature Image">
+            </div>
+            <div class="detail-box">
+              <h5>Expense Tracking</h5>
+              <p>Record and categorize your spending to monitor where your money is going.</p>
+              <a href="expense.html">
+                <span>Calculate Expense</span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="C:\Users\vaish\Videos\project_1\myproject\user\static\images\balance.png" alt="Feature Image">
+            </div>
+            <div class="detail-box">
+              <h5>Budget </h5>
+              <p>Set spending limits, track your expenses, and stay within your financial goals.</p>
+              <a href="budget.html">
+                <span>Plan your budget</span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more features here -->
+      </div>
+      <div class="btn-box">
+        <a href="financialreports.html">View You're Financial Report</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Features Section -->
+ 
+   
+
+  <!-- JS Files -->
+  <script src="{% static 'js\jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js\bootstrap.js' %}"></script>
+  <script src="{% static 'js\custom.js' %}"></script>
+
+</body>
+
+</html>
+{% include 'footer.html'%}
