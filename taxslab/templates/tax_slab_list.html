@@ -1,0 +1,46 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/taxs.css' %}">
+    <title>Tax Slab List</title>
+</head>
+<body>
+
+<div class="body3">
+    {% if request.user.usertype == 1%}
+    <a href="{% url 'add_tax_slab' %}" class="btn btn-primary">Add New Tax Slab</a>
+    {% endif %}
+    <table>
+        <div style="text-align: center;">
+            <h1 style="display: inline; color: white;">Tax Slab List</h1>
+        </div>
+        
+        <thead>
+            <tr>
+                
+                <th>Min Limit</th>
+                <th>Max Limit</th>
+                <th>Tax Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tax_slab in tax_slabs %}
+                <tr>
+                    <td>{{ tax_slab.min_limit }}</td>
+                    <td>{{ tax_slab.max_limit }}</td>
+                    <td>{{ tax_slab.tax_percentage }}%</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+</div>
+</div>
+</body>
+</html>
+
+{% include 'footer.html' %}

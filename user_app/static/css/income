@@ -1,0 +1,44 @@
+/* Body Styling */
+.body1 {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #053246, #87CEEB); /* Lighter gradient for better contrast */
+}
+
+.history-table {
+    margin-top: 20px;
+}
+
+.history-card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-detail {
+    margin-top: 10px;
+}
+
+.low-balance {
+    color: red;
+    font-weight: bold;
+}
+
+.medium-balance {
+    color: orange;
+}
+
+.normal-balance {
+    color: green;
+}
+
+.date {
+    margin-top: 15px;
+    font-style: italic;
+}

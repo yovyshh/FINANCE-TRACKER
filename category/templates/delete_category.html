@@ -1,0 +1,12 @@
+{% load static %}
+{% include 'header.html' %}
+
+<h1>Are you sure you want to delete the category "{{ category.name }}"?</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, Delete</button>
+  <a href="{% url 'view_categories' %}">Cancel</a>
+</form>
+
+{% include 'footer.html' %}

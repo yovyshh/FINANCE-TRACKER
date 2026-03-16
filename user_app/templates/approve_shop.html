@@ -1,0 +1,34 @@
+{% comment %} {% load static %}
+{% include 'header.html'%}
+<link rel="stylesheet" href="{% static 'css/approve.css' %}">
+<h2>Approve Shops</h2>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Shop Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for shop in shops %}
+        <tr>
+            <td><strong>{{ shop.shop_name }}</strong></td>
+            <td>{{ shop.phone }}</td>
+            <td>{{ shop.email }}</td>
+            <td class="actions">
+                <form method="post" action="{% url 'approve_shop_action' shop.id %}">
+                    {% csrf_token %}
+                    <button type="submit" name="action" value="approve">Approve</button>
+                    <button type="submit" name="action" value="reject" class="reject">Reject</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% include 'footer.html'%} {% endcomment %}

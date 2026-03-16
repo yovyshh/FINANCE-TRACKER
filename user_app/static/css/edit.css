@@ -1,0 +1,61 @@
+/* Form Control Styling */
+.form-control {
+  width: 100%;
+  max-width: 500px; /* Adjust as needed */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.form-control:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Card Styling */
+.body2 {
+  color: black;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #1a495d, #B3D9FF);
+  padding: 50px 0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.card h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+button[type="submit"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Full-width button */
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+form label{
+  color: black;
+}

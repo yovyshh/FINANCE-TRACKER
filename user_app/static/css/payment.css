@@ -1,0 +1,141 @@
+ /* General Styles */
+ body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFB6C1; /* Pastel Pink */
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom:150px;
+    overflow-y:auto;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Set to medium size */
+    padding: 30px;
+    margin-top:50px;
+    box-sizing: border-box;
+    max-height: 80vh; /* Allow the container to scroll */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column;
+}
+
+h2, h3 {
+    color: #333;
+    text-align: center;
+    font-size: 20px; /* Increase font size */
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.form-column {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 600px) {
+    .form-column {
+        width: 48%;
+        margin-right: 4%;
+    }
+
+    .form-column:last-child {
+        margin-right: 0;
+    }
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 20px; /* Increase label font size */
+}
+
+input[type="text"], input[type="month"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px; /* Set input font size */
+    box-sizing: border-box; /* Ensure padding does not overflow */
+    max-width: 100%; /* Ensure input doesn't overflow */
+    overflow: hidden; /* Prevent input from overflowing */
+}
+
+input[type="text"]:focus, input[type="month"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.errorlist {
+    color: red;
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.errorlist li {
+    margin-bottom: 5px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 14px 20px; /* Increase padding for button */
+    font-size: 18px; /* Set button font size */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Cart Section */
+h3 {
+    margin-top: 30px;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+ul li {
+    font-size: 18px; /* Set font size for cart items */
+    color: #555;
+}
+
+.cart-item-debug {
+    color: #888;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.card-no {
+    max-width: 800px !important;  /* Enforce max width */
+    width: 100% !important;       /* Ensure it takes 100% width of available space */
+    box-sizing: border-box;       /* Ensure padding and border are included in width */
+}

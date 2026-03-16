@@ -1,0 +1,85 @@
+
+
+<!-- filepath: /C:/Users/rifan/OneDrive/Desktop/moneymap/moneymap/income/templates/user_report.html -->
+{% load static %}
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Report</title>
+    <link rel="stylesheet" href="{% static 'css/personal_report.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const filterDataUrl = "{% url 'filter_data' %}";
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1 class="text-align-center">Personal Report</h1>
+    </header>
+
+    <div class="container">
+        <!-- Filters -->
+        <div class="filters">
+            <label for="year">Year:</label>
+            <select id="year">
+                <option value="">-- Select Year --</option>
+                {% for year in years %}
+                    {% with start_year=year end_year=year|add:"1" %}
+                        <option value="{{ start_year }}-{{ end_year }}">{{ start_year }} - {{ end_year }}</option>
+                    {% endwith %}
+                {% endfor %}
+            </select>
+
+            <label for="data-type">Data Type:</label>
+            <select id="data-type">
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+            </select>
+        </div>
+
+        <div class="totals-container">
+            <h2>Current Month Summary</h2>
+            <p><strong>Total Income:</strong> <span id="currentMonthTotalIncome">{{ total_income }}</span></p>
+            <p><strong>Total Expense:</strong> <span id="currentMonthTotalExpense">{{ total_expense }}</span></p>
+            <p><strong>Balance Income:</strong> <span id="currentMonthBalanceIncome">{{ balance_income }}</span></p>
+        </div>
+
+        <!-- Content container (graph and table side by side) -->
+        <div class="content-container">
+            <!-- Pie Chart -->
+            <canvas id="expenseChart"></canvas>
+
+            <!-- Table displaying relevant data -->
+            <div class="table-container">
+                <h2>Report</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Subcategory</th>
+                            <th>Budget</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body">
+                        <!-- Data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/personal_report.js' %}"></script>
+</body>
+</html>
+
+

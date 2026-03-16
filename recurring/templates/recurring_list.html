@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recurring Entries</title>
+    <link rel="stylesheet" href="{% static 'css/recurring_list.css' %}">
+</head>
+<body>
+   <div class="body1">
+    <a href="{% url 'add_recurring' %}" class="add-btn" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 16px; display: inline-block; text-align: center;">
+        Add New Recurring Entry
+    </a>
+    
+    {% if recurring_transactions %}
+    <h1>Recurring Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>SubCategory</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in recurring_transactions %}
+            <tr>
+                <td>{{ transaction.title }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>{{ transaction.subcategory }}</td>
+                <td>{{ transaction.type }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No recurring transactions found.</p>
+    {% endif %}
+</div>
+</body>
+</html>
+{% include 'footer.html' %}

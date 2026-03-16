@@ -1,0 +1,82 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/history.css' %}">
+    <title>Budget History</title>
+</head>
+<body>
+    <div class="body1">
+        <h1 style="color: white;">Budget History</h1>
+
+        <div class="history-table-container">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Expense Title</th>
+                        <th>Budget Title</th>
+                        <th>Description</th>
+                        <th>Expense Amount</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Initial Balance</th>
+                        <th>Remaining Balance</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for history in budgets %}
+                        <tr data-initial="{{ history.budget.initial_amount }}" 
+                            data-remaining="{{ history.remaining_balance }}">
+                            <td>{{ history.expense.title }}</td>
+                            <td>{{ history.budget.name }}</td>
+                            <td>{{ history.expense.description }}</td>
+                            <td>{{ history.expense.amount }}</td>
+                            <td>{{ history.expense.category.title }}</td>
+                            <td>{{ history.expense.subcategory.title }}</td>
+                            <td>{{ history.budget.initial_amount }}</td>
+                       
+                            <td class="remaining-balance">{{ history.remaining_balance }}</td>
+                            <td>{{ history.date }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="9" class="no-history">No budget history available.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const rows = document.querySelectorAll('.history-table tbody tr');
+
+            rows.forEach(row => {
+                const initialAmount = parseFloat(row.dataset.initial || 0);
+                const remainingBalance = parseFloat(row.dataset.remaining || 0);
+
+                if (initialAmount > 0) {
+                    const remainingPercentage = (remainingBalance / initialAmount) * 100;
+                    const balanceCell = row.querySelector('.remaining-balance');
+
+                    if (remainingPercentage <= 10) {
+                        balanceCell.classList.add('low-balance');
+                    } else if (remainingPercentage <= 50) {
+                        balanceCell.classList.add('medium-balance');
+                    } else {
+                        balanceCell.classList.add('normal-balance');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+{% include 'footer.html' %}

@@ -1,0 +1,106 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/common_report.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        const filterDataUrl = "{% url 'fetch_common_report_data' %}";
+    </script>
+</head>
+<body>
+    <button id="downloadPdfBtn">Download as PDF</button>  <!-- Placed outside the content section -->
+
+    <div id="reportContent"> <!-- Start capturing content for PDF from here -->
+        <h1  >Income Tax Report</h1>
+
+        <!-- Filters -->
+        <div class="filters">
+            <label for="year">Year:</label>
+            <select id="year">
+                <option value="">-- Select Year --</option>
+                {% for year in years %}
+                    {% with start_year=year end_year=year|add:"1" %}
+                        <option value="{{ start_year }}-{{ end_year }}">{{ start_year }} - {{ end_year }}</option>
+                    {% endwith %}
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Totals -->
+        <div class="totals-container">
+            <p><strong>Total Income:</strong> <span id="totalIncome">{{ total_income }}</span></p>
+            <p><strong>Total Expense:</strong> <span id="totalExpense">{{ total_expense }}</span></p>
+            <p><strong>Balance:</strong> <span id="balance">{{ balance }}</span></p>
+            <p><strong>Tax Percentage:</strong> <span id="taxPercentage">{{ tax_percentage }}%</span></p>
+            <p><strong>Tax Amount:</strong> <span id="taxAmount">{{ tax_amount }}</span></p>
+        </div>
+
+        <!-- Content container (tables and graph) -->
+        <div class="content-container">
+            <div class="table-container">
+                <h2>Income</h2>
+                <div id="income-container">
+                    <!-- Income data will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h2>Expense</h2>
+                <div id="expense-container">
+                    <!-- Expense data will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Graph -->
+        <div>
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </div> <!-- End capturing content for PDF -->
+
+    <script>
+     document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+    const { jsPDF } = window.jspdf;
+    const reportContent = document.getElementById('reportContent');
+
+    html2canvas(reportContent, {
+        scale: 2,
+        useCORS: true
+    }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        let position = 10;
+
+        // Add centered title
+        const title = "Common Report";
+        const titleWidth = pdf.getTextWidth(title);
+        const titleX = (pageWidth - titleWidth) / 2; // Center horizontally
+
+        pdf.setFontSize(18);
+        pdf.text(title, titleX, position); // Centered Title
+        position += 10; // Move down for image
+
+        // Add the captured content
+        const imgWidth = 190; // Adjust width for better fit
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+
+        pdf.save('Common_Report.pdf');
+    });
+});
+
+    </script>
+
+    <script src="{% static 'js/common_report.js' %}"></script>
+</body>
+</html>

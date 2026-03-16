@@ -1,0 +1,62 @@
+{% load static %}
+<footer class="buttom-footer py-lg-4 py-md-3 py-sm-3 py-3">
+    <section>
+        <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
+            <div class="">
+                <div class="row footer-agile-grids">
+                    <div class="col-lg-4 col-md-4 col-sm-12 wthree-left-right">
+                        <h4 class="mb-md-3 pb-3">Follow Us</h4>
+                        <div class="footer-icons">
+                            <ul>
+                                <li class="mb-2">
+                                    <a href="https://mail.google.com">
+                                        <span class="fas fa-envelope"></span>
+                                    </a>
+                                    <h6 class="ml-3 text-left">Gmail</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 offset-lg-4 col-md-4 col-sm-12 wthree-left-right" style="text-align: right;">
+                        <h4 class="mb-md-3 pb-3">Nav Links</h4>
+                        <nav class="border-line">
+                            <ul class="nav flex-column">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="financial_services.html">About</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            responsiveClass: true,
+            responsive: {
+                0: { items: 1, nav: true },
+                600: { items: 1, nav: false },
+                900: { items: 1, nav: false },
+                1000: { items: 3, nav: true, loop: false, margin: 20 }
+            }
+        })
+    })
+</script>
+<script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+<script src="{% static 'js/move-top.js' %}"></script>
+<script src="{% static 'js/easing.js' %}"></script>
+<script src="{% static 'js/Financed.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/common_report.js' %}"></script>
+<script src="{% static 'js/personal_report.js' %}"></script>
+
+</body>
+</html>

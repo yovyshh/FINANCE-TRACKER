@@ -1,0 +1,32 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/sub.css' %}">
+<div class="body">
+    <div class="card">
+        <div class="card-header1">
+            <h1>Edit Subcategory: {{ subcategory.title }}</h1>
+
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    <div class="form-group">
+                        {% if field.name == 'category' %}
+                            {{ field.errors }}
+                            {{ field.as_hidden }}
+                        {% else %}
+                            {{ field.label_tag }}
+                            {{ field }}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <div class="form-actions">
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

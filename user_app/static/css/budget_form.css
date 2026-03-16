@@ -1,0 +1,87 @@
+/* Global Styling */
+
+.body1{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #053246, #B3D9FF);
+    color: white;
+    padding: 20px;
+}
+
+/* Styling for form container */
+form {
+    align-items: center;
+    max-width: 600px; /* Adjusted to make the container smaller */
+    background: rgb(255, 255, 255); /* Slightly transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 450px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Heading style */
+h2 {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+}
+
+/* Ensures all form elements are the same size */
+form input, form select, form textarea, form button {
+    width: 100%;   /* Make all form elements take full width */
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Makes padding and border count in width */
+}
+form label{
+    color: black;
+}
+
+/* Focus effect for input elements */
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #4CAF50; /* Green border on focus */
+    outline: none;
+}
+
+/* Button styling */
+form button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Link to navigate back */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #ffcc00; /* Gold color */
+    font-size: 18px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+form textarea {
+    width: 100%;  /* Ensure the text area takes full width */
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}

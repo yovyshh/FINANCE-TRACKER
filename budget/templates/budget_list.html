@@ -1,0 +1,45 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/budget_list.css' %}">
+
+<div class="body">
+    <h2>Budgets</h2>
+    <div class="add-budget-container">
+        <a href="{% url 'budget_form' %}" class="btn btn-primary add-budget">Create a new budget</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start Date</th>
+                <th>Expiry Date</th>
+                <th>Initial Amount</th>
+                <th>Remaining Balance</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for budget in budgets %}
+            <tr>
+                <td>{{ budget.name }}</td>
+                <td>{{ budget.start_date }}</td>
+                <td>{{ budget.expiry_date }}</td>
+                <td>{{ budget.initial_amount }}</td>
+                <td>{{ budget.remaining_amount }}</td>
+                <td>
+                    <a href="{% url 'budget_update' budget.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'budget_delete' budget.pk %}" class="btn btn-primary">Delete</a>
+                    <a href="{% url 'budget_history' budget.pk%}" class="btn btn-primary">Budget History</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No budgets found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'footer.html' %}

@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/budget_d.css' %}">
+
+<div class="budget-detail-container">
+    <h2 class="budget-title">{{ budget.name }}</h2>
+    
+    <div class="budget-info">
+        <p><strong>Start Date:</strong> {{ budget.start_date }}</p>
+        <p><strong>Expiry Date:</strong> {{ budget.expiry_date }}</p>
+        <p><strong>Amount:</strong> ${{ budget.amount }}</p>
+        <p><strong>Description:</strong> {{ budget.description }}</p>
+    </div>
+
+    <div class="budget-actions">
+        <a href="{% url 'budget_update' budget.pk %}" class="btn btn-edit">Edit</a>
+        <a href="{% url 'budget_list' %}" class="btn btn-back">Back to Budgets</a>
+    </div>
+</div>
+
+{% include 'footer.html' %}

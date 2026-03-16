@@ -1,0 +1,17 @@
+{% load static %}
+{% include 'header.html' %}
+
+    <link rel="stylesheet" href="{% static 'css/addtax.css' %}">
+
+    <div class="body">
+    <form method="POST">
+        <h1>Add Tax Slab</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Add Tax Slab</button>
+    </form>
+</div>
+
+
+
+{% include 'footer.html' %}

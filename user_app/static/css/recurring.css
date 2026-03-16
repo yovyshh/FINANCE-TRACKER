@@ -1,0 +1,96 @@
+/* General Styles */
+.body1 {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #053246, #B3D9FF); /* Apply gradient to body */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the main content */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Card styling */
+.card {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+form {
+    padding: 20px;
+}
+
+/* Styling for form fields */
+form .form-control {
+    margin-bottom: 15px;
+    width: 100%; /* Ensure full width */
+    padding: 10px; /* Adjust padding for consistency */
+    font-size: 1rem; /* Ensure text size consistency */
+    border: 1px solid #ccc; /* Light border for better visibility */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for input fields */
+}
+
+/* Adjusting focus on form controls */
+form .form-control:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    outline: none;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the CSRF token input */
+form input[name="csrfmiddlewaretoken"] {
+    display: none;
+}
+
+/* Styling the container body */
+.body1 {
+    background-color: #f4f4f4;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.add-btn {
+    color: blue;  /* Make the text blue */
+    text-decoration: none;  /* Remove the underline */
+}
+
+.add-btn:hover {
+    color: darkblue;  /* Change to a darker blue when hovered */
+}

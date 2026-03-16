@@ -1,0 +1,88 @@
+{% load static %}
+{% include 'header.html' %}
+
+<style>
+
+
+
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.div-card {
+    flex: 1;
+    margin: 10px;
+    max-width: 48%;
+}
+
+.card-new {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.card-new:hover {
+    transform: scale(1.05);
+}
+
+.card-new img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title-new {
+    padding: 15px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 1.2em;
+}
+
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    .div-card {
+        max-width: 100%;
+    }
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="div-card">
+            <div class="card-new">
+                <a href="/register" class="card-new">
+                    <img src="{% static 'images/shopping.jpg' %}" alt="User Registration">
+                    <div class="card-title-new">USER REGISTRATION</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Uncomment this when needed -->
+        {% comment %} 
+        <div class="div-card">
+            <div class="card-new">
+                <a href="/shop_reg" class="card-new">
+                    <img src="{% static 'images/img14.jpg' %}" alt="Shop Registration">
+                    <div class="card-title-new">SHOP REGISTRATION</div>
+                </a>
+            </div>
+        </div>
+        {% endcomment %}
+    </div>
+</div>
+
+{% include 'footer.html' %}

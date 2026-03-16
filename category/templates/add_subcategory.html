@@ -1,0 +1,27 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/sub.css' %}">
+
+<div class="body">
+    <!-- Card Wrapper -->
+    <div class="card">
+        <div class="card-body">
+            <h1 style="text-align: center;">Add Subcategory to {{ category.title }}</h1>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Only render the 'title' field -->
+                <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+                    {{ form.title }}
+                </div>
+
+                <button type="submit" class="btn-save">
+                    Save Subcategory
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}

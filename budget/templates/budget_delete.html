@@ -1,0 +1,12 @@
+{% load static %}
+{% include 'header.html' %}
+
+<h2>Are you sure you want to delete "{{ object.name }}"?</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-delete">Yes, Delete</button>
+    <a href="{% url 'budget_list' %}" class="btn btn-cancel">Cancel</a>
+</form>
+
+{% include 'footer.html' %}

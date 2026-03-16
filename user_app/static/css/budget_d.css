@@ -1,0 +1,72 @@
+/* Global styles for the page */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #053246, #B3D9FF);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the budget detail page */
+.budget-detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Title of the budget */
+.budget-title {
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Styling for the budget information */
+.budget-info {
+  margin-bottom: 20px;
+}
+
+.budget-info p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.budget-info strong {
+  font-weight: bold;
+}
+
+/* Action buttons (Edit and Back) */
+.budget-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.budget-actions a {
+  display: inline-block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.budget-actions a:hover {
+  background-color: #45a049;
+}
+
+/* Back button specific styling */
+.btn-back {
+  background-color: #ffcc00; /* Gold color */
+}
+
+.btn-back:hover {
+  background-color: #e6b800;
+}
+

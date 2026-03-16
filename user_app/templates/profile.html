@@ -1,0 +1,83 @@
+{% load static %}                   
+{% include 'header.html' %}
+<!-- viewprofile -->
+<style>
+    .body {
+        background: linear-gradient(to bottom, rgb(67, 76, 83), #000000);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Changed from height: 100vh to min-height */
+        flex-direction: column; /* Added to center content vertically */
+    }
+
+    .prof_container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+        margin: 5px 0 60px 50px;
+    }
+
+    .profile-info img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .btn {
+        margin-top: 20px;
+        display: inline-block;
+        width: 200px;
+        height: 30px;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+</style>
+
+<div class="body">
+    <div class="prof_container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <div class="image">
+                <div class="trick">
+                    {% if user.image %}
+                        <img src="{{ user.image.url }}" alt="Profile Image">
+                    {% else %}
+                        <img src="{% static 'images/default_profile.jpg' %}" alt="Default Profile Image">
+                    {% endif %}
+                </div>
+            </div>
+            <br><br>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email Address:</strong> {{ user.email }}</p>
+            <p><strong>Phone:</strong> {{ user.phone }}</p>
+            <p><strong>Place:</strong> {{ user.place }}</p>
+
+            <a href="/edit_profile" class="btn">UPDATE</a>
+            <br><br>
+            <a href="/password_change_form" id="forgot-password" style="color: #007bff;">Reset Password</a>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+</body>
+</html>

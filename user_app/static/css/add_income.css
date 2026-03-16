@@ -1,0 +1,95 @@
+/* Global box-sizing for consistency */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.body1 {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #053246, #B3D9FF);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    width: 100%;
+    max-width: 400px; /* Keeps the card responsive */
+    padding: 20px;
+    margin: auto;
+    color: black;
+}
+
+.card-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #053246;
+
+}
+
+.card-body form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+    border: 1px solid #333; /* Improved contrast for visibility */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%; /* Full width of parent */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus state for inputs */
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #053246;
+    box-shadow: 0 0 5px rgba(5, 50, 70, 0.5);
+    outline: none;
+}
+
+form button {
+    background-color: #053246;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+form button:hover {
+    background-color: #005580;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .card {
+        padding: 15px;
+    }
+
+    form button {
+        font-size: 14px;
+    }
+}

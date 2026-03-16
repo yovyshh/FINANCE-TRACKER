@@ -1,0 +1,165 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Register Form</title> 
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" /> 
+    </head>
+    <body> 
+        <style>
+            /* css/style.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(67, 76, 83), #000000);
+    overflow: hidden; 
+
+}
+
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.Reg-form .form-group {
+    margin-bottom: 15px;
+}
+
+.Reg-form label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.Reg-form input[type="text"],
+.Reg-form input[type="email"],
+.Reg-form input[type="password"],
+.Reg-form input[type="tel"],
+.Reg-form input[type="file"],
+.Reg-form select,
+.Reg-form textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.image-field {
+    margin-top: 8px;
+}
+
+.resized-image {
+    display: block;
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: #ff4d4d;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+        </style>
+        <div class="body">
+        <div class="register-container"> 
+            <form class="Reg-form" method="POST" enctype="multipart/form-data"> 
+                <h2>Register</h2> 
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Email:</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="error">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">Phone:</label>
+                    {{ form.phone }}
+                    {% if form.phone.errors %}
+                        <div class="error">
+                            {{ form.phone.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Place:</label>
+                    {{ form.place }}
+                    {% if form.place.errors %}
+                        <div class="error">
+                            {{ form.place.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.image.id_for_label }}">Image:</label>
+                    {% if form.instance.image %}  {# assuming image is your image field #}
+                        <img src="{{ form.instance.image.url }}" alt="image" class="resized-image">
+                    {% endif %}
+                    <div class="image-field">
+                        <input type="file" name="{{ form.image.name }}" id="{{ form.image.id_for_label }}">
+                    </div>
+                    {% if form.image.errors %}
+                        <div class="error">
+                            {{ form.image.errors }}
+                        </div> 
+                    {% endif %}
+                </div>
+                <br>
+                <button type="submit">UPDATE</button> 
+            </form>
+        </div>
+    </div>
+    </body>
+</html>
+{% include 'footer.html' %}

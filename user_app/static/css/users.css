@@ -1,0 +1,71 @@
+/* Product Container Styles */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Product Card Styles */
+.product-card {
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px; /* Adjusted height for larger image */
+    padding: 16px;
+}
+
+/* Image Styles */
+.product-card img.product-image {
+    width: 100%;
+    height: 300px; /* Increased height for larger image */
+    object-fit: cover; /* Prevents stretching and maintains aspect ratio */
+    border-radius: 4px;
+}
+
+/* Description Styles */
+.product-description {
+    height: 60px; /* Fixed height for description */
+    overflow: hidden; /* Ensures text does not overflow */
+    text-overflow: ellipsis; /* Adds "..." for overflow text */
+    white-space: nowrap; /* Keeps the description in one line */
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Price Styles */
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    margin: 8px 0;
+}
+
+/* Add to Cart Button Styles */
+.cart-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cart-button:hover {
+    background-color: #0056b3;
+}
+
+.no-products-message {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}

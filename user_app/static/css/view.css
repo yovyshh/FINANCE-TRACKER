@@ -1,0 +1,100 @@
+/* Set the default text color to black */
+.body1 {
+    color: black;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1a495d, #B3D9FF);
+    padding: 20px; /* Optional: Add some padding around the container */
+}
+
+/* Category Card Heading */
+.category-card h2 {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Category Card Description */
+.category-card p {
+    color: black;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Category Card Subcategories */
+.card-subcategories ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-subcategories li {
+    color: black;
+    font-size: 1rem;
+}
+
+/* Link Style for Editing, Deleting, etc. */
+.card-actions a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.card-actions a:hover {
+    text-decoration: none;
+}
+
+/* Style for the Add Category Button */
+.add-category-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.add-category-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Card Container Style */
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Individual Row Style */
+.category-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Each Card Style */
+.category-card {
+    flex: 1; /* Cards take equal space */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 100px; /* Ensure cards don't exceed half the row width */
+}
+
+.category-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Empty States Styling */
+.card-subcategories ul li {
+    font-style: normal;
+    color: black;
+}
+

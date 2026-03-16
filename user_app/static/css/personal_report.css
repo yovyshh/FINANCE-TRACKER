@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header .ml-5 {
+    margin: 0;
+    margin-left: 300px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filters label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.filters select, .filters input {
+    margin-right: 20px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.filters select {
+    width: 150px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 40px 0;
+    align-items: flex-start;  /* Ensure the items align at the top */
+}
+
+#expenseChart {
+    max-width: 400px;  /* Adjusted width */
+    height: 50px;     /* Adjusted height */
+    width: 100%;
+    margin-top: -40px;  /* Added margin to move the chart up */
+}
+
+.table-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    background-color: #fafafa;
+}
+
+th, td {
+    text-align: center;
+}
+
+.totals-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.totals-container p {
+    margin: 0 10px;
+}

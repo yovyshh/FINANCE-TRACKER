@@ -1,0 +1,128 @@
+.body1 {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #053246, #B3D9FF);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the section covers the full viewport height */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Includes padding and border in total width/height */
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 600px; /* Keeps the card width manageable */
+    padding: 20px;
+    margin: auto;
+    color: black;
+}
+
+.card-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #053246;
+}
+
+.card-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds uniform spacing between elements */
+}
+
+form label {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+    border: 1px solid #ccc; /* Lighter border for a cleaner look */
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px; /* Ensures consistent text size */
+}
+
+form textarea {
+    resize: none; /* Prevents unwanted resizing of textareas */
+}
+
+form button {
+    background-color: #053246;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #005580; /* Slightly brighter blue on hover */
+}
+
+/* Error Message Styling */
+.error {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .card {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Checkbox List Styling */
+.checkbox-list {
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* Adds consistent spacing between items */
+    margin: 20px 0; /* Adds top and bottom spacing for the section */
+    padding: 0;
+    list-style-type: none; /* Removes bullet points */
+}
+.checkbox-item {
+    display: flex;
+    align-items: center; /* Centers the checkbox and label vertically */
+    margin: 10px;
+    min-width: 200px; /* Ensures items have consistent width */
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+
+.checkbox-item label {
+    font-size: 16px; /* Adjust font size */
+    line-height: 1.5; /* Adjust line height for proper spacing */
+}
+
+.checkbox-item input {
+    margin-right: 10px; /* Adds spacing between the checkbox and label */
+    order: 1; /* Ensures the checkbox is placed before the label */
+}
+
+/* Ensure checkbox and label stay side by side */
+.checkbox-item label {
+    order: 2; /* Ensures the label is placed after the checkbox */
+}

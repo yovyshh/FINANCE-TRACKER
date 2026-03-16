@@ -1,0 +1,29 @@
+.body1 {
+    color: black;
+    font-family: Arial, sans-serif; /* Optional: set a default font */
+    background: linear-gradient(to bottom, #1a495d, #B3D9FF);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f4f4f4;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+td[colspan="3"] {
+    text-align: center;
+    font-style: italic;
+}

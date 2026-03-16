@@ -1,0 +1,112 @@
+/* General body styling */
+.body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #053246, #B3D9FF);  /* Apply gradient to body */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Register container styling */
+.register-container1 {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    max-height: 90vh;
+ 
+}
+
+/* Title styling */
+h2 {
+    text-align: center;
+    color: #333333;
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+}
+
+/* Form fields container for a clean layout */
+.form-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+/* Individual form field styling */
+.form-field {
+    flex: 1 1 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Label styling */
+.form-field label {
+    font-size: 14px;
+    
+}
+
+/* Input, select, and textarea field styling */
+.form-field input, 
+.form-field select, 
+.form-field textarea {
+    padding: 0.75rem;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid black;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+/* Focus state for input, select, and textarea */
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: #007acc;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007acc;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+/* Hover effect for submit button */
+button[type="submit"]:hover {
+    background-color: #005f99;
+}
+
+/* Media query for responsive form layout */
+@media (max-width: 600px) {
+    .form-field {
+        flex: 1 1 100%;
+    }
+}
+
+/* Footer styling */
+footer {
+    margin-top: auto;  /* Push footer to the bottom */
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background-color: black;
+    color: #ffffff;
+}

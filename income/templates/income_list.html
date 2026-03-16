@@ -1,0 +1,43 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="body1">
+    <a href="{% url 'add_income' %}" class="btn btn-primary">Add Income</a>
+    <h2 style="color: white;">Income List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Date</th>
+                <th>Action</th> <!-- Corrected header name -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for income in incomes %}
+            <tr>
+                <td>{{ income.title }}</td>
+                <td>{{ income.amount }}</td>
+                <td>{{ income.category.title }}</td>
+                <td>{{ income.subcategory.title }}</td>
+                <td>{{ income.created_at }}</td> <!-- Display the created_at field -->
+                <td>
+                    <a href="{% url 'delete_income' income.id %}" class="btn btn-danger" 
+                       onclick="return confirm('Are you sure you want to delete this income?');">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if total_income %}
+        <h3>Total Income: {{ total_income }}</h3>
+    {% else %}
+        <h3>Total Income: 0</h3>
+    {% endif %}
+</div>
+
+{% include 'footer.html' %}

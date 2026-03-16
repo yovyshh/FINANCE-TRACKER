@@ -1,0 +1,37 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recurring Transaction</title>
+    <link rel="stylesheet" href="{% static 'css/recurring.css' %}">
+    <!-- Include Bootstrap for card styles -->
+    
+</head>
+<body>
+    <div class="body1">
+    <div class="container mt-5">
+        <h1 class="mb-4">Add Recurring Transaction</h1>
+
+        <!-- Card container for the form -->
+        <div class="card">
+           
+               
+        
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }} <!-- This will render the form fields as paragraphs -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+
+        <!-- Link back to the list of recurring transactions -->
+        
+    </div>
+</div>
+
+</body>
+</html>
+

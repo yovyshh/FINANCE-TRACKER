@@ -1,0 +1,68 @@
+/* Add some spacing and font styling */
+.body {
+    background: linear-gradient(to bottom, #053246, #B3D9FF);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Container for the form */
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Style form inputs */
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #080808;
+    
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+form label{
+    color: black;
+}
+/* Style the submit button */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Change button color on hover */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Link button styling */
+.link-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.link-btn:hover {
+    text-decoration: none;
+    color: #ffffff;
+}

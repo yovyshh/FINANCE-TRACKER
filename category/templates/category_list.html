@@ -1,0 +1,12 @@
+{% load static %}
+{% include 'header.html' %}
+<h1>Category List</h1>
+<ul>
+  {% for category in categories %}
+    <li>
+      <a href="{% url 'edit_category' category.pk %}">{{ category.title }}</a>
+      <a href="{% url 'delete_category' category.pk %}">Delete</a>
+    </li>
+  {% endfor %}
+</ul>
+{% include 'footer.html' %}

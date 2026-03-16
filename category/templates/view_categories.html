@@ -1,0 +1,137 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/view.css' %}">
+
+<div class="body1">
+    <div class="container">
+        <a class="btn btn-primary mb-3" href="{% url 'add_category' %}">Add New Category</a>
+        {% if request.user.usertype == 0 %}
+        <div class="row mt-5">
+            <div class="col-12">
+                <h1 style="color: white; text-align: center;">My Categories</h1>
+                <div class="row">
+                    {% for category in categories %}
+                        {% if category.type in 'Expense' and category.user == user %}
+                            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                                <div class="category-card">
+                                    <div class="card-header1">
+                                        <h2>{{ category.title }}</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Description:</strong> {{ category.description|truncatewords:20 }}</p>
+                                        <p><strong>Max Limit:</strong> {{ category.max_limit }}</p>
+                                        <p><strong>Type:</strong> {{ category.type }}</p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="{% url 'edit_category' category.id %}" class="btn btn-primary">Edit</a>
+                                        <a href="{% url 'delete_category' category.id %}" class="btn btn-primary">Delete</a>
+                                        <a href="{% url 'add_subcategory' category.id %}" class="btn btn-primary">Add Subcategory</a>
+                                    </div>
+                                    <div class="card-subcategories">
+                                      
+                                        <ul>
+                                            <h3>Subcategories</h3>
+                                            {% for subcategory in category.subcategories.all %}
+                                                <li>{{ subcategory.title }}</li>
+                                                <a href="{% url 'edit_subcategory' subcategory.id %}" class="btn btn-primary">Edit</a>
+                                                <a href="{% url 'delete_subcategory' subcategory.id %}" class="btn btn-primary">Delete</a>
+                                            {% empty %}
+                                             
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if category.type in 'Income' and category.user == user %}
+                            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                                <div class="category-card">
+                                    <div class="card-header1">
+                                        <h2>{{ category.title }}</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Description:</strong> {{ category.description|truncatewords:20 }}</p>
+                                        <p><strong>Type:</strong> {{ category.type }}</p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="{% url 'edit_category' category.id %}" class="btn btn-primary">Edit</a>
+                                        <a href="{% url 'delete_category' category.id %}" class="btn btn-primary">Delete</a>
+                                        <a href="{% url 'add_subcategory' category.id %}" class="btn btn-primary">Add Subcategory</a>
+                                    </div>
+                                    <div class="card-subcategories">
+                                
+                                        <ul>
+                                    
+                                            {% for subcategory in category.subcategories.all %}
+                                            <h3>Subcategories</h3>
+                                                <li>{{ subcategory.title }}</li>
+                                                <a href="{% url 'edit_subcategory' subcategory.id %}" class="btn btn-primary">Edit</a>
+                                                <a href="{% url 'delete_subcategory' subcategory.id %}" class="btn btn-primary">Delete</a>
+                                            {% empty %}
+                                             
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% empty %}
+                      
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Second Row: Form 16 -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h1 style="color: white; text-align: center;">Based on Form 16</h1>
+                <div class="row">
+                    {% for category in ad_categories %}
+                        {% if category.type in 'Expense Income' %}
+                            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                                <div class="category-card">
+                                    <div class="card-header1">
+                                        <h2>{{ category.title }}</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Description:</strong> {{ category.description|truncatewords:20 }}</p>
+                                        <p><strong>Type:</strong> {{ category.type }}</p>
+                                    </div>
+                                    <div class="card-actions">
+                                        {% if request.user.usertype == 1 %}
+                                            <a href="{% url 'edit_category' category.id %}" class="btn btn-primary">Edit</a>
+                                            <a href="{% url 'delete_category' category.id %}" class="btn btn-primary">Delete</a>
+                                            <a href="{% url 'add_subcategory' category.id %}" class="btn btn-primary">Add Subcategory</a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-subcategories">
+                                        
+                                        <ul>
+                                            <h3>Subcategories</h3>
+                                            {% for subcategory in category.subcategories.all %}
+                                            
+                                                <li>{{ subcategory.title }}</li>
+                                                {% if request.user.usertype == 1 %}
+                                                    <a href="{% url 'edit_subcategory' subcategory.id %}" class="btn btn-primary">Edit</a>
+                                                    <a href="{% url 'delete_subcategory' subcategory.id %}" class="btn btn-primary">Delete</a>
+                                                {% endif %}
+                                            {% empty %}
+                                           
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% empty %}
+                        
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}

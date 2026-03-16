@@ -1,0 +1,41 @@
+{% load static %}
+{% include 'header.html' %}
+<div class="body1">
+    <a href="{% url 'add_expense' %}" class="btn btn-primary">Add Expense</a>
+    <h2 style="color: white;">Your Expenses</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Date</th>
+                <th>Budget</th>
+               
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.title }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.category.title }}</td>
+                <td>{{ expense.subcategory.title }}</td>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.budget }}</td>
+              
+                <td>
+                    <form action="{% url 'delete_expense' expense.pk %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn" style="background-color: red; color: white; border: none;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include 'footer.html' %}

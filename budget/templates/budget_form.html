@@ -1,0 +1,15 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/budget_form.css' %}">
+
+<div class="body1">
+    <form method="post">
+        <p style="margin-left: 20px;">Current Budget: {{ budget.name }} | Remaining Balance: {{ budget.remaining_balance }}</p>
+
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
+        <button type="submit">{% if object %}Update{% else %}Create{% endif %}</button>
+    </form>
+</div>
+
+{% include 'footer.html' %}

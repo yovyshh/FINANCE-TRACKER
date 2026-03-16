@@ -1,0 +1,133 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Financed a Corporate Category Bootstrap Responsive Web Template | Home :: W3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<meta name="keywords" content="Financed Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+
+	<!-- Custom-Files -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<!-- Bootstrap-Core-CSS -->
+<link rel="stylesheet" href="{% static 'css/personal_report.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/owl.theme.css' %}" type="text/css" media="all">
+<!-- Carousel (for News section) -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/reg.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/tax.css' %}" type="text/css" media="all">
+
+
+<!-- Style-CSS -->
+<link rel="stylesheet" href="{% static 'css/fontawesome-all.css' %}">
+<!-- Font-Awesome-Icons-CSS -->
+<!-- //Custom-Files -->
+
+<!-- Web-Fonts -->
+
+<!-- Owl Carousel Styles -->
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+<!-- jQuery (required for Owl Carousel) -->
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+
+
+<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+{% if messages %}
+      {% for message in messages %}
+        {% if 'reg' in message.tags %}
+          <script>
+            alert("{{ message }}")
+          </script>
+        {% elif 'log' in message.tags %}
+          <script>
+            alert("{{ message }}")
+          </script>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+
+</head>
+<body>
+
+
+	<header>
+    <nav class="navbar navbar-expand-lg navbar-light px-sm-5 px-3 py-0">
+        <h1>
+            <a class="navbar-brand py-2" href="/">
+                <i class="far fa-chart-bar"></i>Financed
+            </a>
+        </h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto px-xl-5 px-lg-4 py-4">
+                {% if request.session.ut == 0 %}
+                    <li class="nav-item ml-3"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/profile">Profile</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/view_categories">Category</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/tax_slab_list">Tax Slab</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/budget_list">Budget List</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/income_list">List income</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/recurring_list">List recurring</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/list_expense">List Expense</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/chat">Chat</a></li>
+                    
+                    <li class="nav-item ml-3"><a class="nav-link" href="/report">Personal Report</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/common_report">IT Report</a></li>
+                    
+                   
+                    <li class="nav-item ml-3"><a class="nav-link" href="/logout">Logout</a></li>
+                {% elif request.session.ut == 1 %}
+                    <li class="nav-item ml-3"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/add_category">Add Category</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/view_categories">View Category</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/add_tax_slab">Tax Slab</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/tax_slab_list">View Tax Slab</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/logout">Logout</a></li>
+                {% else %}
+                    <li class="nav-item ml-3" ><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="financial_services.html">About</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/contact">Contact Us</a></li>
+                    <li class="nav-item ml-3" ><a class="nav-link" href="/login">Sign In</a></li>
+                    <li class="nav-item ml-3" ><a class="nav-link" href="/register">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+	<!-- //header -->
