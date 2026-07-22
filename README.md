@@ -16,7 +16,7 @@ This project is a feature-rich Personal Finance Management system built with **D
 - **Responsive UI**: Modern, intuitive interface built with Bootstrap, Font Awesome, and custom CSS/JS.
 - **Admin Dashboard**: Specialized management interface for system administrators.
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
 - **Backend**: Django (Python)
 - **Database**: SQLite
